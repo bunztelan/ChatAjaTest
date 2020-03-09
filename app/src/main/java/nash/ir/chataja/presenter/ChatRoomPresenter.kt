@@ -7,16 +7,18 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.orhanobut.hawk.Hawk
-import kotlinx.android.synthetic.main.activity_chat_room.view.*
 import nash.ir.chataja.model.Message
 import nash.ir.chataja.model.User
+import nash.ir.chataja.ui.ChatRoomActivity
 import nash.ir.chataja.ui.adapter.ChatListAdapter
 import nash.ir.chataja.util.KEY_ACTIVE_USER
+import nash.ir.chataja.util.KEY_USER_LIST
 import java.util.*
 
 class ChatRoomPresenter(private val context: Context, private val view:View?){
 
     private val db = FirebaseFirestore.getInstance()
+    private val userList = Hawk.get<ArrayList<User>>(KEY_USER_LIST)
     private val activeUser = Hawk.get<User>(KEY_ACTIVE_USER)
 
     fun sendMessage(content:String){
@@ -62,5 +64,15 @@ class ChatRoomPresenter(private val context: Context, private val view:View?){
 
                 }
             }
+    }
+
+    fun logout() {
+        Hawk.delete(KEY_ACTIVE_USER)
+        (context as ChatRoomActivity).finish()
+    }
+
+    fun getOpponentData(): User {
+        val opponentIdx = userList.indexOfFirst { it->it.email != activeUser.email }
+        return userList[opponentIdx]
     }
 }

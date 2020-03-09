@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +34,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_below="@id/tvTitle"
+                android:inputType="textEmailAddress"
                 android:hint="Email"
                 android:backgroundTint="#767676"
                 tools:ignore="HardcodedText" />
@@ -62,26 +63,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 tools:ignore="HardcodedText" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@id/btnSignIn"
-                android:layout_marginTop="24dp"
-                android:layout_centerHorizontal="true">
-                <TextView
-                    android:id="@+id/tvRegisInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Don't have an account? "/>
-                <TextView
-                    android:id="@+id/btnRegister"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:text="Register"/>
-            </LinearLayout>
-
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

@@ -1,7 +1,8 @@
-package nash.ir.chataja
+package nash.ir.chataja.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import nash.ir.chataja.R
 
 class ChatRoomActivity : AppCompatActivity() {
 
